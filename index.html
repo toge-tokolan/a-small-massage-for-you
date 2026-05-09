@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu 💌</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- ============ THREE.JS BACKGROUND ============ -->
+
+  <!-- ============ AUDIO ============ -->
+  <audio id="bgMusic" loop>
+    <source src="music2.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="musicBtn" class="music-btn" aria-label="Toggle Music">
+    <span id="musicIcon">♪</span>
+  </button>
+  <div class="music-guide" id="musicGuide">Tekan tombol musik di pojok kanan bawah untuk memutar atau menghentikan lagu.</div>
+
+  <!-- ============ SECTION 1: WELCOME ============ -->
+  <section id="welcome" class="section-page visible">
+    <div class="welcome-content">
+      <div class="letter-envelope">💌</div>
+      <p class="subtitle-hint">sebuah pesan kecil buat kamu</p>
+      <h1 class="typing-text" id="typingText"></h1>
+      <button class="btn-main" id="btnNext" onclick="goToSection('tentang')">
+        <span>Klik di sini</span>
+        <div class="btn-glow"></div>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: TENTANG DIA ============ -->
+  <section id="tentang" class="section-page hidden-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="eyebrow">hal-hal tentang kamu</p>
+        <h2 class="section-title">Puput Ruthiaseca</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="reason-card" data-delay="0">
+          <div class="card-icon">💬</div>
+          <h3>Cara kamu ngobrol</h3>
+          <p>Aku suka cara kamu bercerita — dengan antusias, hangat, dan penuh ekspresi. Rasanya aku bisa dengerin kamu sepanjang hari.</p>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="reason-card" data-delay="300">
+          <div class="card-icon">🌙</div>
+          <h3>Rasa nyaman itu</h3>
+          <p>Saat sama kamu, dunia terasa lebih tenang. Aku nggak perlu jadi siapapun selain diriku sendiri.</p>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="reason-card" data-delay="450">
+          <div class="card-icon">✨</div>
+          <h3>Perhatian kecilmu</h3>
+          <p>Detail-detail kecil yang kamu ingat, cara kamu peduli tanpa diminta — itu yang bikin kamu berbeda dari yang lain.</p>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="reason-card" data-delay="600">
+          <div class="card-icon">🎶</div>
+          <h3>Energi kamu</h3>
+          <p>Ada aura hangat yang kamu bawa ke mana-mana. Orang-orang di sekitar kamu pasti ngerasa itu juga.</p>
+          <div class="card-shine"></div>
+        </div>
+
+        <div class="reason-card" data-delay="750">
+          <div class="card-icon">🌷</div>
+          <h3>Kamu, apa adanya</h3>
+          <p>Bukan hal besar atau sempurna — tapi justru kamu yang sederhana dan jujur itu yang paling aku suka.</p>
+          <div class="card-shine"></div>
+        </div>
+      </div>
+
+      <button class="btn-secondary" onclick="goToSection('game')">Lanjut →</button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: MINI GAME ============ -->
+  <section id="game" class="section-page hidden-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="eyebrow">mini game</p>
+        <h2 class="section-title">Catch The Heart 💕</h2>
+        <div class="title-line"></div>
+        <p class="game-desc">Klik 10 hati yang jatuh untuk lanjut! 💕</p>
+      </div>
+
+      <div class="game-wrapper">
+        <div class="game-stats">
+          <div class="stat-box">
+            <span class="stat-label">Skor</span>
+            <span class="stat-value" id="scoreDisplay">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Waktu</span>
+            <span class="stat-value" id="timerDisplay">30</span>
+          </div>
+        </div>
+        <div id="gameArea" class="game-area">
+          <div class="game-overlay" id="gameOverlay">
+            <button class="btn-game-start" id="startGameBtn" onclick="startGame()">
+              Mulai Game ▶
+            </button>
+          </div>
+          <div id="gameMessage" class="game-message hidden"></div>
+        </div>
+        <div id="gameResult" class="game-result hidden">
+          <p id="gameResultText"></p>
+          <button class="btn-secondary" onclick="goToSection('confess')">Lanjut ke bagian paling penting →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: CONFESS ============ -->
+  <section id="confess" class="section-page hidden-section">
+    <div class="confess-bg-overlay"></div>
+    <div id="confettiContainer" class="confetti-container"></div>
+    <div class="section-inner confess-inner">
+      <div class="confess-deco">💌</div>
+      <p class="eyebrow">dari lubuk hati</p>
+      <h2 class="section-title confess-title">Sebuah Pengakuan</h2>
+      <div class="title-line"></div>
+
+      <div class="confess-text-block">
+        <p class="confess-line" id="cLine1"></p>
+        <p class="confess-line" id="cLine2"></p>
+        <p class="confess-line" id="cLine3"></p>
+        <p class="confess-line" id="cLine4"></p>
+      </div>
+
+      <button class="btn-secondary" onclick="goToSection('answer')">Baca terus… ❤️</button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 5: ANSWER ============ -->
+  <section id="answer" class="section-page hidden-section">
+    <div class="section-inner answer-inner">
+      <div class="answer-hearts">
+        <span class="big-heart">💗</span>
+      </div>
+      <p class="eyebrow">pertanyaan penting</p>
+      <h2 class="section-title answer-title">Mau jadi seseorang<br/>yang spesial buat aku?</h2>
+      <div class="title-line"></div>
+      <p class="answer-sub">Pikir baik-baik ya… tapi sebelum itu, coba kejar tombol itu dulu 😄</p>
+
+      <div class="answer-buttons" id="answerButtons">
+        <button class="btn-yes" id="btnYes" onclick="handleYes()">YES ✨</button>
+        <button class="btn-no" id="btnNo">NO 😅</button>
+      </div>
+    </div>
+
+    <!-- YES Popup -->
+    <div id="yesPopup" class="popup-overlay hidden">
+      <div id="popupConfetti" class="confetti-container"></div>
+      <div class="popup-card">
+        <div class="popup-emoji">🥰</div>
+        <h2 class="popup-title">YEAYYY ❤️</h2>
+        <p class="popup-text">Makasih udah nerima aku :)</p>
+        <p class="popup-sub">Kamu nggak bakal nyesel, aku janji ✨</p>
+        <div class="popup-hearts">
+          <span>💕</span><span>💗</span><span>💖</span><span>💝</span><span>💓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
