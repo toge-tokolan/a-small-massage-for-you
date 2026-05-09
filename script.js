@@ -317,9 +317,9 @@ function startConfess() {
   triggerConfetti(document.getElementById('confettiContainer'), 80);
 
   const lines = [
-    { id: 'cLine1', text: 'Sebenarnya… aku udah lama suka sama kamu.' },
+    { id: 'cLine1', text: 'Sebenarnya… aku udah suka sama kamu semenjak kamu menerima aku apa adanya.' },
     { id: 'cLine2', text: 'Ada sesuatu dari kamu yang bikin aku susah lupain.' },
-    { id: 'cLine3', text: 'Aku nyaman sama kamu, dan itu nggak mudah aku temuin.' },
+    { id: 'cLine3', text: 'Aku nyaman sama kamu, dan itu nggak mudah aku temuin dari orang lain.' },
     { id: 'cLine4', text: 'Dan aku ingin jujur tentang perasaan ini.' },
   ];
 
