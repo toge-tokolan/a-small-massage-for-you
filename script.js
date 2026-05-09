@@ -251,9 +251,9 @@ function spawnHeart(area, scoreEl) {
 
   const heart  = document.createElement('div');
   heart.classList.add('falling-heart');
-  const gems = ['💎', '✨', '🍷', '⭐', '🌟'];
-  const gem = gems[Math.floor(Math.random() * gems.length)];
-  heart.innerHTML = gem;
+  const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💕', '💞', '💓', '💗', '💖', '💘', '💝', '💟'];
+  const heartEmoji = hearts[Math.floor(Math.random() * hearts.length)];
+  heart.innerHTML = heartEmoji;
   const left     = Math.random() * (area.offsetWidth - 50) + 10;
   const duration = 2.0 + Math.random() * 2.5;
 
